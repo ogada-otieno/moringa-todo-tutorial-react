@@ -1,8 +1,8 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-// this is the parent component of <TodoItem />
-// child component of <App />
+// This is the parent component of <TodoItem />
+// Child component of <App />
 
 const TodoList = () => {
   const todos = [
@@ -33,39 +33,37 @@ const TodoList = () => {
   ];
 
   // handling JS outside our elements
-  const todoitemsToRender = () => todos.map((todo) => {
-    return (
-      <TodoItem
-        key={todo.id}
-        title={todo.title}
-        description={todo.description}
-        isComplete={todo.isComplete}
-      />
-    );
-  });
+  // const todoitemsToRender = () =>
+  //   todos.map((todo) => {
+  //     return (
+  //       <TodoItem
+  //         key={todo.id}
+  //         title={todo.title}
+  //         description={todo.description}
+  //         isComplete={todo.isComplete}
+  //       />
+  //     );
+  //   });
 
   return (
     <div id='todolist'>
-      <h1>Todo List Container</h1>
+      <h2>Todo List Container</h2>
       <div>
         <h3>Completed Tasks</h3>
-        {/* {todoitemsToRender} */}
+        {todos
+          .filter((todo) => todo.isComplete) // return todos that are complete
+          .map((todo) => (
+            <TodoItem key={todo.id} todo={todo} />
+          ))}
       </div>
       <div>
         <h3>Incomplete Tasks</h3>
+        {todos
+          .filter((todo) => !todo.isComplete) // return todos that are incomplete
+          .map((todo) => (
+            <TodoItem key={todo.id} todo={todo} />
+          ))}
       </div>
-      {/* {todoitemsToRender} */}
-
-      {/* when handling JS inside our elements */}
-      {/* <>
-        {todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            title={todo.title}
-            description={todo.description}
-          />
-        ))}
-      </> */}
     </div>
   );
 };
