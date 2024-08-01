@@ -1,8 +1,6 @@
 import React from 'react';
 // this is a child component of <TodoList />
 function TodoItem({ todo }) {
-  console.log(todo.isComplete);
-
   return (
     <div id='todoitem'>
       <p>Title: {todo.title} </p>

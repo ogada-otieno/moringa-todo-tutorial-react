@@ -33,36 +33,26 @@ const TodoList = () => {
   ];
 
   // handling JS outside our elements
-  // const todoitemsToRender = () =>
-  //   todos.map((todo) => {
-  //     return (
-  //       <TodoItem
-  //         key={todo.id}
-  //         title={todo.title}
-  //         description={todo.description}
-  //         isComplete={todo.isComplete}
-  //       />
-  //     );
-  //   });
+
+  // we pass an arg, filterCondition, which can either be true or false
+  // then filter based on that arg
+  // after, we map over the filtered data
+  // then return the JSX
+  const todoItemsFilteredAndMapped = (filterCondition) =>
+    todos
+      .filter((todo) => todo.isComplete === filterCondition)
+      .map((todo) => <TodoItem key={todo.id} todo={todo} />);
 
   return (
     <div id='todolist'>
       <h2>Todo List Container</h2>
       <div>
         <h3>Completed Tasks</h3>
-        {todos
-          .filter((todo) => todo.isComplete) // return todos that are complete
-          .map((todo) => (
-            <TodoItem key={todo.id} todo={todo} />
-          ))}
+        {todoItemsFilteredAndMapped(true)}
       </div>
       <div>
         <h3>Incomplete Tasks</h3>
-        {todos
-          .filter((todo) => !todo.isComplete) // return todos that are incomplete
-          .map((todo) => (
-            <TodoItem key={todo.id} todo={todo} />
-          ))}
+        {todoItemsFilteredAndMapped(false)}
       </div>
     </div>
   );
