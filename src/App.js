@@ -1,9 +1,10 @@
 // import './App.css';
+import { useState } from 'react';
 import AddTodoForm from './AddTodoForm';
 import StateDemo from './StateDemo';
 import TodoList from './TodoList';
 
-const todos = [
+const myTodos = [
   {
     id: 1,
     title: 'todo one',
@@ -32,15 +33,19 @@ const todos = [
 
 // parent component of <TodoList />
 function App() {
+  const [todos, setTodos] = useState(myTodos);
+
+  // func that handles adding a newTodo:{} and pass it as a prop to the AddTodoForm
+  const addTodo = (newTodo) => {
+    setTodos([...todos, newTodo]);
+  };
+
   return (
     <div className='App'>
       <StateDemo />
       <h1>todo tutorial</h1>
-      <AddTodoForm />
+      <AddTodoForm addTodo={addTodo} />
       <div id='todolist'>
-        {/* <div id='todoitem'>todo one</div>
-        <div id='todoitem'>todo two</div>
-        <div id='todoitem'>todo three</div> */}
         <TodoList todos={todos} />
       </div>
     </div>
