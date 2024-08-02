@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Todo Tutorial App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The Todo Tutorial App is a React application designed to demonstrate how to manage a list of tasks with functionalities to add new tasks, and display completed and incomplete tasks. This project also showcases state management using React hooks and styling with Tailwind CSS.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Add Todo Form**: Allows users to input and submit new tasks.
+- **State Demo**: Provides interactive buttons to manipulate and display state changes.
+- **Todo List**: Displays tasks categorized into completed and incomplete sections.
+- **Responsive Design**: The application is responsive and adjusts layout based on screen size.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React**: JavaScript library for building user interfaces.
+- **Tailwind CSS**: Utility-first CSS framework for custom designs.
+- **React Hooks**: For managing state and lifecycle methods in functional components.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+Ensure you have [Node.js](https://nodejs.org/) installed. You can check your Node.js version with:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+node -v
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
 
-### `npm run eject`
+```bash
+git clone https://github.com/ogada-otieno/moringa-todo-tutorial-react.git
+cd moringa-todo-tutorial-react
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Start the development server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+## Components
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`App.js`
+- The main component that renders the Todo Tutorial application, including the `AddTodoForm`, `StateDemo `, and `TodoList` components.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`AddTodoForm.js`
+- A form component for adding new tasks to the list. It includes input fields for the task title and description.
 
-### Code Splitting
+`StateDemo.js`
+- A demonstration component that showcases the use of React state with interactive buttons to modify and display state.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+`TodoList.js`
+- A component that displays the list of tasks, categorized into completed and incomplete sections. 
+`TODO: include functionality to toggle task completion status.`
 
-### Analyzing the Bundle Size
+## Styling
+This project uses Tailwind CSS for styling. For component-specific styles, Tailwind utility classes are applied. The layout is responsive and adapts to different screen sizes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## contributing
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Key Sections:
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Overview**: Briefly describes what the app does and its key features.
+2. **Technologies**: Lists the technologies used in the project.
+3. **Installation**: Provides step-by-step instructions for setting up the project.
+4. **Components**: Briefly describes the main components of the project.
+5. **Styling**: Details the styling approach used.
+6. **Contributing**: Encourages contributions and explains the process.
