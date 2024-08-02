@@ -4,34 +4,7 @@ import TodoItem from './TodoItem';
 // This is the parent component of <TodoItem />
 // Child component of <App />
 
-const TodoList = () => {
-  const todos = [
-    {
-      id: 1,
-      title: 'todo one',
-      description: 'lorem ipsum lorem',
-      isComplete: false,
-    },
-    {
-      id: 2,
-      title: 'todo two',
-      description: 'lorem ipsum lorem',
-      isComplete: true,
-    },
-    {
-      id: 3,
-      title: 'todo three',
-      description: 'lorem ipsum lorem',
-      isComplete: false,
-    },
-    {
-      id: 4,
-      title: 'todo four',
-      description: 'lorem ipsum lorem',
-      isComplete: true,
-    },
-  ];
-
+const TodoList = ({ todos }) => {
   // handling JS outside our elements
 
   // we pass an arg, filterCondition, which can either be true or false
