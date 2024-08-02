@@ -10,9 +10,11 @@ const myTodos = [
   { id: 4, title: 'todo four', description: 'lorem ipsum lorem', isComplete: true },
 ];
 
+// parent component of <TodoList />
 function App() {
   const [todos, setTodos] = useState(myTodos);
-
+  
+  // func that handles adding a newTodo:{} and pass it as a prop to the AddTodoForm
   const addTodo = (newTodo) => {
     setTodos([...todos, newTodo]);
   };

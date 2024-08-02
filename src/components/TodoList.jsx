@@ -1,7 +1,16 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
+// This is the parent component of <TodoItem />
+// Child component of <App />
 const TodoList = ({ todos }) => {
+  // handling JS outside our elements
+  
+    // we pass an arg, filterCondition, which can either be true or false
+    // then filter based on that arg
+    // after, we map over the filtered data
+    // then return the JSX
+
   const todoItemsFilteredAndMapped = (filterCondition) =>
     todos
       .filter((todo) => todo.isComplete === filterCondition)
