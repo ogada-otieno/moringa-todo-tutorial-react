@@ -3,7 +3,7 @@ import TodoItem from './TodoItem';
 
 // This is the parent component of <TodoItem />
 // Child component of <App />
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos,onToggle }) => {
   // handling JS outside our elements
   
     // we pass an arg, filterCondition, which can either be true or false
@@ -14,7 +14,7 @@ const TodoList = ({ todos }) => {
   const todoItemsFilteredAndMapped = (filterCondition) =>
     todos
       .filter((todo) => todo.isComplete === filterCondition)
-      .map((todo) => <TodoItem key={todo.id} todo={todo} />);
+      .map((todo) => <TodoItem key={todo.id} todo={todo} onToggle={onToggle}/>);
 
   return (
     <div id='todolist' className='flex flex-col lg:flex-row'>

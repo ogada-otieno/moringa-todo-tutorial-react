@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 // if you add a newTodo, the data should be rendered (albeit temporarily) tin your browser.
 
@@ -56,6 +57,7 @@ const AddTodoForm = ({ addTodo, className }) => {
     // call the addTodo func that we had passed as a prop and update our original todo
     addTodo(newTodo);
     setFormData({ title: '', description: '' });// reset form inputs after submission
+    toast.success('Todo added successfully'); // show a success toast message
   };
 
   return (
