@@ -1,4 +1,4 @@
-import { FaCheck, FaTimes } from 'react-icons/fa';
+import { FaCheck, FaTimes, FaEdit, FaTrash } from 'react-icons/fa';
 // this is a child component of <TodoList />
 
 function TodoItem({ todo,onToggle }) {
@@ -14,33 +14,36 @@ function TodoItem({ todo,onToggle }) {
   };
 
   return (
-    <div className='border p-4 rounded shadow-md mb-4'>
+    <div className='card bg-base-100 shadow-lg p-5 mb-4'>
       <p className='font-bold'>Title: {todo.title} </p>
       <p>Description: {todo.description} </p>
-      <>
+      <div className="mt-4">
         {todo.isComplete ? (
-          <div className='text-green-500 flex items-center'>
+          <div className='text-success flex items-center'>
           <FaCheck className='mr-2' />
             <s>Task is complete</s>
           </div>
         ) : (
-          <div className='text-red-500 flex items-center'>
+          <div className='text-error flex items-center'>
           <FaTimes className='mr-2' />
           Task is incomplete
           </div>
         )}
-        <button onClick={() => handleEdit(todo.id)} className='bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded mr-2'>
-          Edit
+        <div className="mt-4 flex space-x-2">
+        <button onClick={() => handleEdit(todo.id)} className='btn btn-warning'>
+          <FaEdit />
         </button>
-        <button onClick={() => handleDelete(todo.id)} className='bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded'>
-          Delete
+        <button onClick={() => handleDelete(todo.id)} className='btn btn-error'>
+          <FaTrash />
         </button>
           <button
                 onClick={() => onToggle(todo.id)}
-                className='ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded'>
-                {todo.isComplete ? 'Mark Incomplete' : 'Mark Complete'}
+                className={`btn ${todo.isComplete ? 'btn-success' : 'btn-info'}`}
+                          >
+                {todo.isComplete ? <FaTimes /> : <FaCheck />}
           </button>
-      </>
+      </div>
+    </div>
     </div>
   );
 }

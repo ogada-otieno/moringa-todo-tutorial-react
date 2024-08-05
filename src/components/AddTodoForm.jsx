@@ -80,32 +80,32 @@ const AddTodoForm = ({ addTodo, className }) => {
     <div className={`${className} flex flex-col  mb-5`}>
       <form
         onSubmit={handleAddTodo}
-        className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex-1'
+        className='card bg-base-100 shadow-lg p-5'
       >
-        <div className='mb-4'>
+        <div className='form-control mb-4'>
           <input
             type='text'
             name='title'
             value={formData.title}
             placeholder='Enter task title'
             onChange={handleChange}
-            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            className='input input-bordered w-full'
           />
         </div>
-        <div className='mb-4'>
+        <div className='form-control mb-4'>
           <input
             type='text'
             name='description'
             value={formData.description}
             placeholder='Enter task description'
             onChange={handleChange}
-            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            className='input input-bordered w-full'
           />
         </div>
-        <div className='flex items-center justify-between'>
+        <div className='form-control'>
           <button
             type='submit'
-            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+            className='btn btn-primary'
           >
             Add Todo
           </button>
