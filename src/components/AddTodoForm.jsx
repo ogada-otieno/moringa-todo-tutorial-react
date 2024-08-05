@@ -12,11 +12,11 @@ const AddTodoForm = ({ addTodo, className }) => {
   const handleChange = (e) => {
     // const title =
     const { name, value } = e.target;
-    
+
     // create a copy of our current formData state
     //   const updatedFormData = { ...formData };
-   
-       /* 
+
+    /* 
         let myObj = {
          key1: value1,
          key2: value1
@@ -27,42 +27,61 @@ const AddTodoForm = ({ addTodo, className }) => {
          description: 'description value'
        }
        */
-   
-       // update the specific specific field in our copied state
-       // check lines 18-28 for illustration
-       //updatedFormData[name] = value;
-       // console.log(name, value);
-   
-       // console.log(updatedFormData);
-       //set the new state with the updated field data
-       //setFormData(updatedFormData);
-       // console.log(eejhfehjfbjh);
-       
+
+    // update the specific specific field in our copied state
+    // check lines 18-28 for illustration
+    //updatedFormData[name] = value;
+    // console.log(name, value);
+
+    // console.log(updatedFormData);
+    //set the new state with the updated field data
+    //setFormData(updatedFormData);
+    // console.log(eejhfehjfbjh);
+
     setFormData({ ...formData, [name]: value });
   };
-  
-  const handleAddTodo = (e) => {
+
+  const handleAddTodo = async (e) => {
     //  prevent default form submission behavior
     e.preventDefault();
     const newTodo = {
-      id: Math.floor(Math.random() * 1000),
       title: formData.title,
       description: formData.description,
       isComplete: false,
-      // description: e.target.title.value,
-      // title: e.target.title.value,
     };
-    // console.log('new todo data:', newTodo);
-    
+
+    try {
+      const response = await fetch('http://localhost:3000/myTodos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newTodo),
+      });
+
+      if (!response.ok) {
+        throw new Error('post request failure');
+      }
+      // call the addTodo func that we had passed as a prop and update our original todo
+      addTodo(newTodo);
+      setFormData({ title: '', description: '' }); // reset form inputs after submission
+      toast.success('Todo added successfully'); // show a success toast message
+    } catch (error) {
+      console.error(error);
+    }
+
     // call the addTodo func that we had passed as a prop and update our original todo
     addTodo(newTodo);
-    setFormData({ title: '', description: '' });// reset form inputs after submission
+    setFormData({ title: '', description: '' }); // reset form inputs after submission
     toast.success('Todo added successfully'); // show a success toast message
   };
 
   return (
     <div className={`${className} flex flex-col  mb-5`}>
-      <form onSubmit={handleAddTodo} className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex-1'>
+      <form
+        onSubmit={handleAddTodo}
+        className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex-1'
+      >
         <div className='mb-4'>
           <input
             type='text'
