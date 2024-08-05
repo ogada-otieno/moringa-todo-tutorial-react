@@ -82,13 +82,13 @@
       "id": "14",
       "title": "Organize Digital Files",
       "description": "Sort and organize digital files and folders on the computer.",
-      "isComplete": false
+      "isComplete": true
     },
     {
-      "id": "15",
-      "title": "Review Budget",
-      "description": "Go over the monthly budget and make adjustments as needed.",
-      "isComplete": true
+      "id": "bc02",
+      "title": "Go to hospital",
+      "description": "Go for check up",
+      "isComplete": false
     }
   ]
 }

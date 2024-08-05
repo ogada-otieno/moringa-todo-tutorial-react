@@ -93,10 +93,10 @@ function App() {
     // Get the updated todo
     const updatedTodo = updatedTodos.find((todo) => todo.id === id);
     
-    // update the todo on the server
+    // update the todo on the server using a PAtch request
     try {
       const response = await fetch(`http://localhost:5000/myTodos/${id}`, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -120,6 +120,25 @@ function App() {
      setJsonData(jsonData);
      }
   };
+  
+  const deleteTodo = async (id) => {
+      try {
+        const response = await fetch(`http://localhost:5000/myTodos/${id}`, {
+          method: 'DELETE',
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to delete todo');
+        }
+  
+        // Remove the todo from the local state
+        setJsonData(jsonData.filter((todo) => todo.id !== id));
+        toast.success('Task deleted successfully');
+      } catch (error) {
+        console.error(error);
+        toast.error('Failed to delete task');
+      }
+  };
 
   return (
     <>
@@ -133,7 +152,7 @@ function App() {
         <div id='todolist' className='mt-8'>
           {/* passing todos as a prop to <TodoList /> */}
           {/* <TodoList todos={todos} onToggle={toggleTodo} /> */}
-          <TodoList todos={jsonData} onToggle={toggleTodo} />
+          <TodoList todos={jsonData} onToggle={toggleTodo} onDelete={deleteTodo}/>
         </div>
 
         {/* Toaster component from react-hot-toast*/}
