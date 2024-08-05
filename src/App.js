@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import AddTodoForm from './components/AddTodoForm';
-import StateDemo from './StateDemo';
+// import StateDemo from './StateDemo';
 import TodoList from './components/TodoList';
 import Header from './components/Header';
-import toast, { Toaster } from 'react-hot-toast';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 // const myTodos = [
@@ -77,27 +78,47 @@ function App() {
   const addTodo = (newTodo) => {
     setJsonData([...jsonData, newTodo]);
   };
+  
+  
   // func that handles toggling a todo's isComplete status
-  const toggleTodo = (id) => {
-    // map over the todos array and update the isComplete status of the todo with the id passed
-    setJsonData(
-      jsonData.map((todo) =>
-        // if the todo.id is equal to the id passed, update the isComplete status
-        // `!todo.isComplete` is a shorthand for flipping the boolean value
-        todo.id === id ? { ...todo, isComplete: !todo.isComplete } : todo,
-      ),
+  const toggleTodo = async (id) => {
+    // update the isComplete status of the todo with the id passed
+    const updatedTodos = jsonData.map((todo) =>
+          todo.id === id ? { ...todo, isComplete: !todo.isComplete } : todo
     );
+    
+    // update the state with the updated todos
+    setJsonData(updatedTodos);
+        
+    // Get the updated todo
+    const updatedTodo = updatedTodos.find((todo) => todo.id === id);
+    
+    // update the todo on the server
+    try {
+      const response = await fetch(`http://localhost:5000/myTodos/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedTodo),
+      });
+      
+      if (!response.ok) {
+        throw new Error('network response failed');
+      }
 
-    // toast notification
-    // if the todo is complete, show a toast notification
-    // if the todo is incomplete, show a different toast notification
-    const todo = jsonData.find((todo) => todo.id === id);
-    if (todo.isComplete) {
-      toast.success(`Task "${todo.title}" marked as complete`);
+    // notify the user of the successful update
+    if(updatedTodo.isComplete){
+      toast.success(`Task "${updatedTodo.title}" marked as complete`);
     } else {
-      toast.error(`Task "${todo.title}" marked as incomplete
-        `);
+      toast.success(`Task "${updatedTodo.title}" marked as incomplete`);
     }
+  } catch (error) {
+      console.error(error);
+      toast.error('An error occurred. Please try again');
+    //Rollback the state if the update fails
+     setJsonData(jsonData);
+     }
   };
 
   return (
@@ -108,9 +129,6 @@ function App() {
           <div className='flex-1 flex items-stretch'>
             <AddTodoForm addTodo={addTodo} className='flex-1' />
           </div>
-          <div className='flex-1 flex items-stretch'>
-            <StateDemo className='flex-1' />
-          </div>
         </div>
         <div id='todolist' className='mt-8'>
           {/* passing todos as a prop to <TodoList /> */}
@@ -119,7 +137,7 @@ function App() {
         </div>
 
         {/* Toaster component from react-hot-toast*/}
-        <Toaster position='top-right' reverseOrder={false} />
+         <ToastContainer />
       </div>
     </>
   );

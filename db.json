@@ -70,7 +70,7 @@
       "id": "12",
       "title": "Fix Broken Faucet",
       "description": "Repair the leaking faucet in the kitchen sink.",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": "13",

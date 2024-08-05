@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 
 // if you add a newTodo, the data should be rendered (albeit temporarily) tin your browser.
 
@@ -51,7 +51,7 @@ const AddTodoForm = ({ addTodo, className }) => {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/myTodos', {
+      const response = await fetch('http://localhost:5000/myTodos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,15 +65,11 @@ const AddTodoForm = ({ addTodo, className }) => {
       // call the addTodo func that we had passed as a prop and update our original todo
       addTodo(newTodo);
       setFormData({ title: '', description: '' }); // reset form inputs after submission
-      toast.success('Todo added successfully'); // show a success toast message
+      toast.success(`Task "${newTodo.title}" added successfully`);
     } catch (error) {
+      toast.error(`Task "${newTodo.title}" failed to add`);
       console.error(error);
     }
-
-    // call the addTodo func that we had passed as a prop and update our original todo
-    addTodo(newTodo);
-    setFormData({ title: '', description: '' }); // reset form inputs after submission
-    toast.success('Todo added successfully'); // show a success toast message
   };
 
   return (
