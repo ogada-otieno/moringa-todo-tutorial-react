@@ -5,7 +5,7 @@ import TodoList from './components/TodoList';
 import Header from './components/Header';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import EditTodoModal from './components/EditTodoModal';
 
 // const myTodos = [
 //   {
@@ -40,6 +40,7 @@ function App() {
   const [jsonData, setJsonData] = useState([]);
   //theme
   const [theme, setTheme] = useState('light');
+  const [editingTodo, setEditingTodo] = useState(null);
 
   // fetch data from the server
   // useEffect(() => {}); --> wrong implementation. please avoid
@@ -139,6 +140,37 @@ function App() {
         toast.error('Failed to delete task');
       }
   };
+  // Edit todo
+  const handleEdit = (todo) => {
+      setEditingTodo(todo);
+      document.getElementById('edit_modal').showModal();
+  };
+  
+  const saveEdit = async (updatedTodo) => {
+      try {
+        const response = await fetch(`http://localhost:5000/myTodos/${updatedTodo.id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatedTodo),
+        });
+  
+        if (!response.ok) {
+          throw new Error('network response failed');
+        }
+  
+        const updatedTodos = jsonData.map((todo) =>
+          todo.id === updatedTodo.id ? updatedTodo : todo
+        );
+  
+        setJsonData(updatedTodos);
+        toast.success(`Task "${updatedTodo.title}" updated successfully`);
+      } catch (error) {
+        console.error(error);
+        toast.error('An error occurred. Please try again');
+      }
+    };
 
   return (
     <>
@@ -152,8 +184,15 @@ function App() {
         <div id='todolist' className='mt-8'>
           {/* passing todos as a prop to <TodoList /> */}
           {/* <TodoList todos={todos} onToggle={toggleTodo} /> */}
-          <TodoList todos={jsonData} onToggle={toggleTodo} onDelete={deleteTodo}/>
+          <TodoList todos={jsonData} onToggle={toggleTodo} onDelete={deleteTodo} onEdit={handleEdit}/>
         </div>
+          
+        {/*EditTodoModal component */ }
+        <EditTodoModal
+            todo={editingTodo}
+            onClose={() => document.getElementById('edit_modal').close()}
+            onSave={saveEdit}
+        />
 
         {/* Toaster component from react-hot-toast*/}
          <ToastContainer />

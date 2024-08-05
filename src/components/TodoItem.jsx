@@ -1,14 +1,7 @@
 import { FaCheck, FaTimes, FaEdit, FaTrash } from 'react-icons/fa';
 // this is a child component of <TodoList />
 
-function TodoItem({ todo,onToggle,onDelete }) {
-  
-  // handleEdit 
-  const handleEdit = (id) => {
-    console.log(`task ID ${id} is to be edited`);
-  };
-
-
+function TodoItem({ todo,onToggle,onDelete,onEdit }) {
 
   return (
     <div className='card bg-base-100 shadow-lg p-5 mb-4'>
@@ -27,7 +20,7 @@ function TodoItem({ todo,onToggle,onDelete }) {
           </div>
         )}
         <div className="mt-4 flex space-x-2">
-        <button onClick={() => handleEdit(todo.id)} className='btn btn-warning'>
+        <button onClick={() => onEdit(todo)}  className='btn btn-warning'>
           <FaEdit />
         </button>
         <button onClick={() => onDelete(todo.id)} className='btn btn-error'>

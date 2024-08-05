@@ -2,7 +2,7 @@
   "myTodos": [
     {
       "id": "1",
-      "title": "Complete React Project",
+      "title": "Complete React Tutorials",
       "description": "Finish the React project for the client, including all features and testing.",
       "isComplete": true
     },
