@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 
 // if you add a newTodo, the data should be rendered (albeit temporarily) tin your browser.
 
@@ -51,7 +51,7 @@ const AddTodoForm = ({ addTodo, className }) => {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/myTodos', {
+      const response = await fetch('http://localhost:5000/myTodos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,47 +65,43 @@ const AddTodoForm = ({ addTodo, className }) => {
       // call the addTodo func that we had passed as a prop and update our original todo
       addTodo(newTodo);
       setFormData({ title: '', description: '' }); // reset form inputs after submission
-      toast.success('Todo added successfully'); // show a success toast message
+      toast.success(`❤️‍🔥 Task "${newTodo.title}" added successfully`);
     } catch (error) {
+      toast.error(`🫣 Task "${newTodo.title}" failed to add`);
       console.error(error);
     }
-
-    // call the addTodo func that we had passed as a prop and update our original todo
-    addTodo(newTodo);
-    setFormData({ title: '', description: '' }); // reset form inputs after submission
-    toast.success('Todo added successfully'); // show a success toast message
   };
 
   return (
     <div className={`${className} flex flex-col  mb-5`}>
       <form
         onSubmit={handleAddTodo}
-        className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex-1'
+        className='card bg-base-100 shadow-lg p-5'
       >
-        <div className='mb-4'>
+        <div className='form-control mb-4'>
           <input
             type='text'
             name='title'
             value={formData.title}
             placeholder='Enter task title'
             onChange={handleChange}
-            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            className='input input-bordered w-full'
           />
         </div>
-        <div className='mb-4'>
+        <div className='form-control mb-4'>
           <input
             type='text'
             name='description'
             value={formData.description}
             placeholder='Enter task description'
             onChange={handleChange}
-            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            className='input input-bordered w-full'
           />
         </div>
-        <div className='flex items-center justify-between'>
+        <div className='form-control'>
           <button
             type='submit'
-            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+            className='btn btn-primary'
           >
             Add Todo
           </button>
