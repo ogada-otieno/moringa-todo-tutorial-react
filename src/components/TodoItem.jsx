@@ -7,6 +7,7 @@ function TodoItem({ todo, onToggle, onDelete, onEdit }) {
     <div className='card bg-base-100 shadow-lg p-5 mb-4'>
       <Link to={`/todo/${todo.id}`}>
         <p className='font-bold'>Title: {todo.title} </p>
+      </Link>
         <p>Description: {todo.description} </p>
         <div className='mt-4'>
           {todo.isComplete ? (
@@ -35,7 +36,7 @@ function TodoItem({ todo, onToggle, onDelete, onEdit }) {
             </button>
           </div>
         </div>
-      </Link>
+      
     </div>
   );
 }

@@ -3,20 +3,18 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AddTodoForm from '../components/AddTodoForm';
 import TodoList from '../components/TodoList';
-import Header from '../components/NavBar';
 import EditTodoModal from '../components/EditTodoModal';
 import Footer from '../components/Footer';
-// import StateDemo from './StateDemo';
+import SearchModal from '../components/SearchModal';
 
-// parent component of <TodoList />
 function Home() {
   const [jsonData, setJsonData] = useState([]);
-  const [theme, setTheme] = useState('light');
   const [editingTodo, setEditingTodo] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchJsonData = async () => {
-      // use normal fetch
       try {
         const response = await fetch('http://localhost:5000/myTodos');
         if (!response.ok) {
@@ -26,41 +24,43 @@ function Home() {
         setJsonData(data);
       } catch (error) {
         console.error(error);
+        toast.error('Failed to fetch data');
       }
     };
 
     fetchJsonData();
   }, []);
 
-  //theme setting
-  useEffect(() => {
-    document.querySelector('html').setAttribute('data-theme', theme);
-  }, [theme]);
+  const addTodo = async (newTodo) => {
+    try {
+      const response = await fetch('http://localhost:5000/myTodos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newTodo),
+      });
 
-  //toggle theme
-  const handleThemeToggle = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+      if (!response.ok) {
+        throw new Error('Failed to add todo');
+      }
+
+      const addedTodo = await response.json();
+      setJsonData([...jsonData, addedTodo]);
+      toast.success(`❤️‍🔥 Task "${addedTodo.title}" added successfully`);
+    } catch (error) {
+      console.error(error);
+      toast.error(`🫣 Task "${newTodo.title}" failed to add`);
+    }
   };
 
-  // func that handles adding a newTodo:{} and pass it as a prop to the AddTodoForm
-  const addTodo = (newTodo) => {
-    setJsonData([...jsonData, newTodo]);
-  };
-
-  // func that handles toggling a todo's isComplete status
   const toggleTodo = async (id) => {
-    // update the isComplete status of the todo with the id passed
     const updatedTodos = jsonData.map((todo) =>
       todo.id === id ? { ...todo, isComplete: !todo.isComplete } : todo,
     );
-
-    // update the state with the updated todos
     setJsonData(updatedTodos);
-
-    // Get the updated todo
     const updatedTodo = updatedTodos.find((todo) => todo.id === id);
 
-    // update the todo on the server using a PAtch request
     try {
       const response = await fetch(`http://localhost:5000/myTodos/${id}`, {
         method: 'PATCH',
@@ -74,7 +74,6 @@ function Home() {
         throw new Error('network response failed');
       }
 
-      // notify the user of the successful update
       if (updatedTodo.isComplete) {
         toast.success(`👌 Task "${updatedTodo.title}" marked as complete`);
       } else {
@@ -83,8 +82,6 @@ function Home() {
     } catch (error) {
       console.error(error);
       toast.error('⚠️ An error occurred. Please try again');
-      //Rollback the state if the update fails
-      setJsonData(jsonData);
     }
   };
 
@@ -98,7 +95,6 @@ function Home() {
         throw new Error('Failed to delete todo');
       }
 
-      // Remove the todo from the local state
       setJsonData(jsonData.filter((todo) => todo.id !== id));
       toast.success('⛔️ Task deleted successfully');
     } catch (error) {
@@ -106,7 +102,7 @@ function Home() {
       toast.error('❗️ Failed to delete task');
     }
   };
-  // Edit todo
+
   const handleEdit = (todo) => {
     setEditingTodo(todo);
     document.getElementById('edit_modal').showModal();
@@ -141,17 +137,50 @@ function Home() {
     }
   };
 
+  const handleSearch = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearchQuery(query);
+    if (query) {
+      const filteredTodos = jsonData.filter(todo =>
+        todo.title.toLowerCase().includes(query) ||
+        todo.description.toLowerCase().includes(query)
+      );
+      setSearchResults(filteredTodos);
+    } else {
+      setSearchResults([]);
+    }
+  };
+
+  const openModal = () => {
+    document.getElementById('search_modal').showModal();
+  };
+
+  const closeModal = () => {
+    document.getElementById('search_modal').close();
+  };
+
   return (
     <>
       <div className='App container mx-auto p-4'>
-        {/* <Header handleThemeToggle={handleThemeToggle} theme={theme} /> */}
+        <div className='flex justify-end'>
+          <button className="btn btn-primary" onClick={openModal}>
+            Search Todos
+          </button>
+        </div>
+        
+        <SearchModal
+          searchQuery={searchQuery}
+          handleSearch={handleSearch}
+          searchResults={searchResults}
+          closeModal={closeModal}
+        />
+
         <div className='flex flex-col lg:flex-row lg:space-x-8 mt-14'>
           <div className='flex-1 flex items-stretch'>
             <AddTodoForm addTodo={addTodo} className='flex-1' />
           </div>
         </div>
         <div id='todolist' className='mt-8'>
-          {/* passing todos as a prop to <TodoList /> */}
           <TodoList
             todos={jsonData}
             onToggle={toggleTodo}
@@ -162,14 +191,11 @@ function Home() {
 
         <Footer />
 
-        {/*EditTodoModal component */}
         <EditTodoModal
           todo={editingTodo}
           onClose={() => document.getElementById('edit_modal').close()}
           onSave={saveEdit}
         />
-
-        {/* Toaster component from react-hot-toast*/}
         <ToastContainer />
       </div>
     </>

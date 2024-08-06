@@ -1,86 +1,83 @@
-import React from 'react';
-import {
-  FaHome,
-  FaSun,
-  FaMoon,
-  FaSearch,
-  FaBell,
-  FaTasks,
-  FaList,
-} from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { FaSun, FaMoon, FaSearch, FaBell, FaTasks, FaList } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
-const NavBar = ({ theme, handleThemeToggle }) => {
+const NavBar = ({ theme, handleThemeToggle, onSearch }) => {
   return (
-    <div className='navbar bg-base-100'>
-      <div className='navbar-start'>
-        {/* Dropdown menu for small screens */}
-        <div className='dropdown lg:hidden'>
-          <div tabIndex={0} role='button' className='btn btn-ghost btn-circle'>
+    <div className="navbar bg-base-100 container mx-auto border-2 rounded-md mt-7">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-5 w-5'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
               <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M4 6h16M4 12h16M4 18h7'
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
           </div>
           <ul
             tabIndex={0}
-            className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a href='#home'>Home</a>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <a href='#tasks'>Tasks</a>
+              <NavLink to="/tasks">Tasks</NavLink>
             </li>
             <li>
-              <a href='#todos'>Todos</a>
+              <NavLink to="/todos">Todos</NavLink>
             </li>
           </ul>
         </div>
-
-        {/* Regular menu for large screens */}
-        <div className='hidden lg:flex lg:items-center lg:space-x-4'>
-          <NavLink to={'login'} className='btn btn-ghost'>
-            <FaTasks className='h-6 w-6' /> Login
-          </NavLink>
-          <NavLink to={'/register'} className='btn btn-ghost'>
-            <FaList className='h-6 w-6' /> Register
-          </NavLink>
-        </div>
+        <NavLink to="/" className="btn btn-ghost text-xl">My Todo App</NavLink>
       </div>
-      <div className='navbar-center'>
-        <NavLink to={'/'} className='btn btn-ghost text-xl'>
-          My Todo App
-        </NavLink>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <NavLink to="/home">Home</NavLink>
+          </li>
+          <li>
+            <details>
+              <summary>Tasks</summary>
+              <ul className="p-2">
+                <li>
+                  <NavLink to="/tasks">Task 1</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/tasks">Task 2</NavLink>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <NavLink to="/todos">Todos</NavLink>
+          </li>
+        </ul>
       </div>
-      <div className='navbar-end'>
-        <button className='btn btn-ghost btn-circle'>
-          <FaSearch className='h-5 w-5' />
+      <div className="navbar-end">
+        <button className="btn btn-ghost btn-circle">
+          <FaSearch className="h-5 w-5" />
         </button>
-        <button className='btn btn-ghost btn-circle'>
-          <div className='indicator'>
-            <FaBell className='h-5 w-5' />
-            <span className='badge badge-xs badge-primary indicator-item'></span>
+        <button className="btn btn-ghost btn-circle">
+          <div className="indicator">
+            <FaBell className="h-5 w-5" />
+            <span className="badge badge-xs badge-primary indicator-item"></span>
           </div>
         </button>
-        <button
-          onClick={handleThemeToggle}
-          className='btn btn-ghost btn-circle'
-        >
-          {theme === 'light' ? (
-            <FaMoon className='h-5 w-5' />
+        <button onClick={handleThemeToggle} className="btn btn-ghost btn-circle">
+          {theme === "light" ? (
+            <FaMoon className="h-5 w-5" />
           ) : (
-            <FaSun className='h-5 w-5' />
+            <FaSun className="h-5 w-5" />
           )}
         </button>
       </div>
