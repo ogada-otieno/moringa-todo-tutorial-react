@@ -6,6 +6,7 @@ import Header from './components/Header';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EditTodoModal from './components/EditTodoModal';
+import Footer from './components/Footer';
 
 // const myTodos = [
 //   {
@@ -110,13 +111,13 @@ function App() {
 
     // notify the user of the successful update
     if(updatedTodo.isComplete){
-      toast.success(`Task "${updatedTodo.title}" marked as complete`);
+      toast.success(`👌 Task "${updatedTodo.title}" marked as complete`);
     } else {
-      toast.success(`Task "${updatedTodo.title}" marked as incomplete`);
+      toast.success(`👎 Task "${updatedTodo.title}" marked as incomplete`);
     }
   } catch (error) {
       console.error(error);
-      toast.error('An error occurred. Please try again');
+      toast.error('⚠️ An error occurred. Please try again');
     //Rollback the state if the update fails
      setJsonData(jsonData);
      }
@@ -134,10 +135,10 @@ function App() {
   
         // Remove the todo from the local state
         setJsonData(jsonData.filter((todo) => todo.id !== id));
-        toast.success('Task deleted successfully');
+        toast.success('⛔️ Task deleted successfully');
       } catch (error) {
         console.error(error);
-        toast.error('Failed to delete task');
+        toast.error('❗️ Failed to delete task');
       }
   };
   // Edit todo
@@ -165,10 +166,10 @@ function App() {
         );
   
         setJsonData(updatedTodos);
-        toast.success(`Task "${updatedTodo.title}" updated successfully`);
+        toast.success(`🎉 Task "${updatedTodo.title}" updated successfully`);
       } catch (error) {
         console.error(error);
-        toast.error('An error occurred. Please try again');
+        toast.error('❗️ An error occurred. Please try again');
       }
     };
 
@@ -186,6 +187,8 @@ function App() {
           {/* <TodoList todos={todos} onToggle={toggleTodo} /> */}
           <TodoList todos={jsonData} onToggle={toggleTodo} onDelete={deleteTodo} onEdit={handleEdit}/>
         </div>
+          
+        <Footer />
           
         {/*EditTodoModal component */ }
         <EditTodoModal

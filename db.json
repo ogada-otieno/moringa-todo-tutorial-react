@@ -4,7 +4,7 @@
       "id": "1",
       "title": "Complete React Tutorials",
       "description": "Finish the React project for the client, including all features and testing.",
-      "isComplete": true
+      "isComplete": false
     },
     {
       "id": "2",
@@ -35,12 +35,6 @@
       "title": "Prepare Presentation",
       "description": "Create slides and prepare the speech for the upcoming team meeting.",
       "isComplete": false
-    },
-    {
-      "id": "7",
-      "title": "Clean the House",
-      "description": "Perform a deep cleaning of the house, including vacuuming and dusting.",
-      "isComplete": true
     },
     {
       "id": "8",
@@ -87,7 +81,7 @@
     {
       "id": "bc02",
       "title": "Go to hospital",
-      "description": "Go for check up",
+      "description": "Go for check up ",
       "isComplete": false
     }
   ]

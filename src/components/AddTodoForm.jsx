@@ -65,9 +65,9 @@ const AddTodoForm = ({ addTodo, className }) => {
       // call the addTodo func that we had passed as a prop and update our original todo
       addTodo(newTodo);
       setFormData({ title: '', description: '' }); // reset form inputs after submission
-      toast.success(`Task "${newTodo.title}" added successfully`);
+      toast.success(`❤️‍🔥 Task "${newTodo.title}" added successfully`);
     } catch (error) {
-      toast.error(`Task "${newTodo.title}" failed to add`);
+      toast.error(`🫣 Task "${newTodo.title}" failed to add`);
       console.error(error);
     }
   };
