@@ -1,9 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const SingleTodo = () => {
   // use JavaScript's window.location.pathname to grab the ID
   const pathname = window.location.pathname;
+
+  // or useParams() to extract the id from the useParams()
+  // if you check the routes.js file, you'll see that we passed the param as "id". so, we can destructure it from the use params
+  let { id } = useParams();
+  console.log(id);
 
   // use split() method to extract the id from the pathname
 
