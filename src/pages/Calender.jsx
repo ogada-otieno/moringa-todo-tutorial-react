@@ -68,7 +68,7 @@ const Calendar = () => {
           <ol className="mt-2">
             {todos
               .filter((todo) => {
-                const todoDate = new Date(todo.createdAt);
+                const todoDate = new Date(todo.creationDate);
                 return (
                   todoDate.getDate() === i &&
                   todoDate.getMonth() === currentDate.getMonth() &&
@@ -82,10 +82,10 @@ const Calendar = () => {
                       {todo.title}
                     </p>
                     <time
-                      dateTime={todo.createdAt}
+                      dateTime={todo.creationDate}
                       className="ml-3 hidden flex-none text-gray-500 group-hover:text-indigo-600 xl:block"
                     >
-                      {new Date(todo.createdAt).toLocaleTimeString([], {
+                      {new Date(todo.creationDate).toLocaleTimeString([], {
                         hour: "2-digit",
                         minute: "2-digit",
                       })}

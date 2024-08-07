@@ -44,7 +44,7 @@ const SingleTodo = () => {
               Status: {todo.isComplete ? "Complete" : "Incomplete"}
             </p>
             <p className="mt-2">
-              Created on: {new Date(todo.createdAt).toLocaleDateString()}
+              Created on: {new Date(todo.creationDate).toLocaleDateString()}
             </p>
             <div className="card-actions mt-4 flex space-x-2">
               <button onClick={handleEdit} className="btn btn-primary">

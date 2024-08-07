@@ -1,34 +1,212 @@
 {
   "myTodos": [
     {
+      "id": "1",
+      "title": "Complete React Tutorials",
+      "description": "Finish the React project for the client, including all features and testing.",
+      "isComplete": false,
+      "dueDate": "2024-08-15T00:00:00.000Z",
+      "priority": "High",
+      "category": "Work",
+      "creationDate": "2024-07-01T00:00:00.000Z",
+      "lastModifiedDate": "2024-08-05T00:00:00.000Z",
+      "subtasks": [
+        { "title": "Create wireframes", "isComplete": true },
+        { "title": "Write code", "isComplete": false },
+        { "title": "Testing", "isComplete": false }
+      ],
+      "notes": "Remember to check the client's requirements before starting the project",
+      "assignedTo": "John Doe",
+      "estimatedTime": "10 hours",
+      "location": "Office",
+      "tags": ["urgent", "client", "frontend"]
+    },
+    {
+      "id": "2",
+      "title": "Grocery Shopping",
+      "description": "Buy groceries for the week including fruits, vegetables, and dairy products.",
+      "isComplete": true,
+      "dueDate": "2024-08-03T00:00:00.000Z",
+      "priority": "Medium",
+      "category": "Personal",
+      "creationDate": "2024-07-28T00:00:00.000Z",
+      "lastModifiedDate": "2024-08-02T00:00:00.000Z",
+      "subtasks": [
+        { "title": "Make a list", "isComplete": true },
+        { "title": "Go to the store", "isComplete": true }
+      ],
+      "notes": "Check for discounts on dairy products",
+      "assignedTo": "Self",
+      "estimatedTime": "1 hour",
+      "location": "Local supermarket",
+      "tags": ["shopping", "weekly"]
+    },
+    {
+      "id": "3",
+      "title": "Book Doctor Appointment",
+      "description": "Schedule a doctor's appointment for a routine check-up.",
+      "isComplete": false,
+      "dueDate": "2024-08-10T00:00:00.000Z",
+      "priority": "High",
+      "category": "Health",
+      "creationDate": "2024-07-25T00:00:00.000Z",
+      "lastModifiedDate": "2024-08-01T00:00:00.000Z",
+      "subtasks": [
+        { "title": "Find doctor's contact", "isComplete": true },
+        { "title": "Call and book appointment", "isComplete": false }
+      ],
+      "notes": "Ask about annual health check-up packages",
+      "assignedTo": "Self",
+      "estimatedTime": "15 minutes",
+      "location": "Doctor's office",
+      "tags": ["health", "important"]
+    },
+    {
+      "id": "4",
+      "title": "Read 20 Pages of a Book",
+      "description": "Read 20 pages of 'The Great Gatsby' before the end of the day.",
+      "isComplete": false,
+      "dueDate": "2024-08-07T00:00:00.000Z",
+      "priority": "Low",
+      "category": "Personal",
+      "creationDate": "2024-08-06T00:00:00.000Z",
+      "lastModifiedDate": "2024-08-06T00:00:00.000Z",
+      "subtasks": [
+        { "title": "Find a quiet place", "isComplete": false },
+        { "title": "Read 10 pages", "isComplete": false },
+        { "title": "Read another 10 pages", "isComplete": false }
+      ],
+      "notes": "Focus on the symbolism in the text",
+      "assignedTo": "Self",
+      "estimatedTime": "1 hour",
+      "location": "Home",
+      "tags": ["reading", "leisure"]
+    },
+    {
+      "id": "5",
+      "title": "Finish Homework",
+      "description": "Complete the homework assignments for mathematics and science.",
+      "isComplete": true,
+      "dueDate": "2024-08-01T00:00:00.000Z",
+      "priority": "High",
+      "category": "School",
+      "creationDate": "2024-07-20T00:00:00.000Z",
+      "lastModifiedDate": "2024-07-31T00:00:00.000Z",
+      "subtasks": [
+        { "title": "Mathematics problems", "isComplete": true },
+        { "title": "Science report", "isComplete": true }
+      ],
+      "notes": "Double-check the mathematics solutions",
+      "assignedTo": "Self",
+      "estimatedTime": "3 hours",
+      "location": "Home",
+      "tags": ["school", "urgent"]
+    },
+    {
+      "id": "6",
+      "title": "Prepare Presentation",
+      "description": "Create slides and prepare the speech for the upcoming team meeting.",
+      "isComplete": false,
+      "dueDate": "2024-08-09T00:00:00.000Z",
+      "priority": "High",
+      "category": "Work",
+      "creationDate": "2024-08-01T00:00:00.000Z",
+      "lastModifiedDate": "2024-08-04T00:00:00.000Z",
+      "subtasks": [
+        { "title": "Draft outline", "isComplete": true },
+        { "title": "Design slides", "isComplete": false },
+        { "title": "Practice speech", "isComplete": false }
+      ],
+      "notes": "Include the latest project updates",
+      "assignedTo": "Jane Doe",
+      "estimatedTime": "5 hours",
+      "location": "Office",
+      "tags": ["presentation", "work"]
+    },
+    {
+      "id": "8",
+      "title": "Send Email to Boss",
+      "description": "Send an update email to the boss regarding the project progress.",
+      "isComplete": false,
+      "dueDate": "2024-08-08T00:00:00.000Z",
+      "priority": "Medium",
+      "category": "Work",
+      "creationDate": "2024-08-07T00:00:00.000Z",
+      "lastModifiedDate": "2024-08-07T00:00:00.000Z",
+      "subtasks": [
+        { "title": "Draft email", "isComplete": false },
+        { "title": "Review draft", "isComplete": false },
+        { "title": "Send email", "isComplete": false }
+      ],
+      "notes": "Include the new feature updates",
+      "assignedTo": "Self",
+      "estimatedTime": "30 minutes",
+      "location": "Office",
+      "tags": ["email", "work"]
+    },
+    {
       "id": "9",
       "title": "Plan Weekend Trip",
       "description": "Plan the itinerary and book accommodation for the weekend trip to the beach.",
       "isComplete": false,
-      "createdAt": "2024-08-07T12:00:00Z",
-      "priority": "Low"
+      "dueDate": "2024-08-12T00:00:00.000Z",
+      "priority": "Low",
+      "category": "Personal",
+      "creationDate": "2024-08-01T00:00:00.000Z",
+      "lastModifiedDate": "2024-08-06T00:00:00.000Z",
+      "subtasks": [
+        { "title": "Research destinations", "isComplete": true },
+        { "title": "Book accommodation", "isComplete": false },
+        { "title": "Create itinerary", "isComplete": false }
+      ],
+      "notes": "Look for pet-friendly accommodations",
+      "assignedTo": "Self",
+      "estimatedTime": "2 hours",
+      "location": "Home",
+      "tags": ["travel", "leisure"]
+    },
+    {
+      "id": "10",
+      "title": "Exercise for 30 Minutes",
+      "description": "Complete a 30-minute workout session at the gym.",
+      "isComplete": true,
+      "dueDate": "2024-08-06T00:00:00.000Z",
+      "priority": "High",
+      "category": "Health",
+      "creationDate": "2024-08-06T00:00:00.000Z",
+      "lastModifiedDate": "2024-08-06T00:00:00.000Z",
+      "subtasks": [
+        { "title": "Warm-up", "isComplete": true },
+        { "title": "Cardio", "isComplete": true },
+        { "title": "Cool down", "isComplete": true }
+      ],
+      "notes": "Focus on cardio exercises",
+      "assignedTo": "Self",
+      "estimatedTime": "30 minutes",
+      "location": "Gym",
+      "tags": ["health", "exercise"]
     },
     {
       "id": "11",
-      "title": "Update Resume",
-      "description": "Revise and update the resume with recent work experience and skills.",
+      "title": "Write Blog Post",
+      "description": "Write and publish a new blog post about the latest tech trends.",
       "isComplete": false,
-      "createdAt": "2024-08-08T12:00:00Z",
-      "priority": "High"
-    },
-    {
-      "id": "7f8d",
-      "title": "hey",
-      "description": "gfh",
-      "isComplete": true,
-      "createdAt": "2024-08-07T16:40:04.783Z"
-    },
-    {
-      "id": "0781",
-      "title": "hs",
-      "description": "hs",
-      "isComplete": true,
-      "createdAt": "2024-08-07T16:43:58.835Z"
+      "dueDate": "2024-08-10T00:00:00.000Z",
+      "priority": "Medium",
+      "category": "Work",
+      "creationDate": "2024-08-05T00:00:00.000Z",
+      "lastModifiedDate": "2024-08-07T00:00:00.000Z",
+      "subtasks": [
+        { "title": "Research topics", "isComplete": true },
+        { "title": "Write draft", "isComplete": false },
+        { "title": "Edit and proofread", "isComplete": false },
+        { "title": "Publish", "isComplete": false }
+      ],
+      "notes": "Include insights from the latest conference",
+      "assignedTo": "Jane Doe",
+      "estimatedTime": "4 hours",
+      "location": "Home",
+      "tags": ["writing", "blog", "tech"]
     }
   ]
 }
