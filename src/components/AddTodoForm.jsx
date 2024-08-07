@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
 const AddTodoForm = ({ addTodo, className }) => {
-  const [formData, setFormData] = useState({ title: "", description: "" });
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    createdAt: new Date().toISOString(),
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,9 +18,14 @@ const AddTodoForm = ({ addTodo, className }) => {
       title: formData.title,
       description: formData.description,
       isComplete: false,
+      createdAt: formData.createdAt,
     };
     addTodo(newTodo);
-    setFormData({ title: "", description: "" });
+    setFormData({
+      title: "",
+      description: "",
+      createdAt: new Date().toISOString(),
+    });
   };
 
   return (

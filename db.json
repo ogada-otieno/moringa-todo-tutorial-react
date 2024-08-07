@@ -1,65 +1,34 @@
 {
   "myTodos": [
     {
-      "id": "1",
-      "title": "Complete React Tutorials",
-      "description": "Finish the React project for the client, including all features and testing.",
-      "isComplete": true
-    },
-    {
-      "id": "3",
-      "title": "Book Doctor Appointment",
-      "description": "Schedule a doctor's appointment for a routine check-up",
-      "isComplete": false,
-      "completed": true
-    },
-    {
-      "id": "4",
-      "title": "Read 20 Pages of a Book",
-      "description": "Read 20 pages of 'The Great Gatsby' before the end of the day.",
-      "isComplete": true
-    },
-    {
-      "id": "5",
-      "title": "Finish Homework",
-      "description": "Complete the homework assignments for mathematics and science.",
-      "isComplete": false
-    },
-    {
-      "id": "8",
-      "title": "Send Email to Boss",
-      "description": "Send an update email to the boss regarding the project progress.",
-      "isComplete": false
-    },
-    {
       "id": "9",
       "title": "Plan Weekend Trip",
       "description": "Plan the itinerary and book accommodation for the weekend trip to the beach.",
-      "isComplete": true
+      "isComplete": false,
+      "createdAt": "2024-08-07T12:00:00Z",
+      "priority": "Low"
     },
     {
       "id": "11",
       "title": "Update Resume",
       "description": "Revise and update the resume with recent work experience and skills.",
-      "isComplete": true
+      "isComplete": false,
+      "createdAt": "2024-08-08T12:00:00Z",
+      "priority": "High"
     },
     {
-      "id": "12",
-      "title": "Fix Broken Faucet",
-      "description": "Repair the leaking faucet in the kitchen sink.",
-      "isComplete": false
+      "id": "7f8d",
+      "title": "hey",
+      "description": "gfh",
+      "isComplete": true,
+      "createdAt": "2024-08-07T16:40:04.783Z"
     },
     {
-      "id": "14",
-      "title": "Organize Digital Files",
-      "description": "Sort and organize digital files and folders on the computer.",
-      "isComplete": true
-    },
-    {
-      "id": "bc02",
-      "title": "Go to hospital",
-      "description": "Go for check up ",
-      "isComplete": false
+      "id": "0781",
+      "title": "hs",
+      "description": "hs",
+      "isComplete": true,
+      "createdAt": "2024-08-07T16:43:58.835Z"
     }
   ]
 }

@@ -51,24 +51,29 @@ npm start
 ## Components
 
 `App.js`
+
 - The main component that renders the Todo Tutorial application, including the `AddTodoForm`, `StateDemo `, and `TodoList` components.
 
 `AddTodoForm.js`
+
 - A form component for adding new tasks to the list. It includes input fields for the task title and description.
 
 `StateDemo.js`
+
 - A demonstration component that showcases the use of React state with interactive buttons to modify and display state.
 
 `TodoList.js`
-- A component that displays the list of tasks, categorized into completed and incomplete sections. 
-`TODO: include functionality to toggle task completion status.`
+
+- A component that displays the list of tasks, categorized into completed and incomplete sections.
+  `TODO: include functionality to toggle task completion status.`
 
 ## Styling
+
 This project uses Tailwind CSS for styling. For component-specific styles, Tailwind utility classes are applied. The layout is responsive and adapts to different screen sizes
 
 ## contributing
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
 ### Key Sections:
 

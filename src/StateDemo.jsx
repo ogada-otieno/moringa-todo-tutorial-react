@@ -14,7 +14,7 @@ function StateDemo({ className }) {
 
   const handleClick = () => {
     // name = 'david';
-    
+
     if (count % 2 === 0) {
       setName("Brenda");
       setGrade(75);
@@ -22,7 +22,7 @@ function StateDemo({ className }) {
       setName("jane");
       setGrade(85);
     }
-     handleIncrement();
+    handleIncrement();
   };
 
   return (

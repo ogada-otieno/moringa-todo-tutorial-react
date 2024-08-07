@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const EditTodoModal = ({ todo, onClose, onSave }) => {
-  const [title, setTitle] = useState(todo?.title || '');
-  const [description, setDescription] = useState(todo?.description || '');
+  const [title, setTitle] = useState(todo?.title || "");
+  const [description, setDescription] = useState(todo?.description || "");
 
   useEffect(() => {
-    setTitle(todo?.title || '');
-    setDescription(todo?.description || '');
+    setTitle(todo?.title || "");
+    setDescription(todo?.description || "");
   }, [todo]);
 
   const handleSave = () => {
@@ -41,7 +41,11 @@ const EditTodoModal = ({ todo, onClose, onSave }) => {
             />
           </div>
           <div className="modal-action">
-            <button type="button" onClick={handleSave} className="btn btn-primary">
+            <button
+              type="button"
+              onClick={handleSave}
+              className="btn btn-primary"
+            >
               Save
             </button>
             <button type="button" onClick={onClose} className="btn">

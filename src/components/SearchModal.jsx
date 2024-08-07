@@ -1,6 +1,11 @@
-import React from 'react';
+import React from "react";
 
-const SearchModal = ({ searchQuery, handleSearch, searchResults, closeModal }) => {
+const SearchModal = ({
+  searchQuery,
+  handleSearch,
+  searchResults,
+  closeModal,
+}) => {
   return (
     <dialog id="search_modal" className="modal">
       <div className="modal-box">
@@ -15,7 +20,7 @@ const SearchModal = ({ searchQuery, handleSearch, searchResults, closeModal }) =
         <div>
           {searchResults.length > 0 ? (
             <ul>
-              {searchResults.map(todo => (
+              {searchResults.map((todo) => (
                 <li key={todo.id} className="mb-2">
                   <div className="card bg-base-100 shadow-lg p-5">
                     <h4 className="font-bold">{todo.title}</h4>

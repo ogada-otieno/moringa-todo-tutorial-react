@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/NavBar";
 
 const App = () => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState("light");
 
   //theme setting
   useEffect(() => {
-    document.querySelector('html').setAttribute('data-theme', theme);
+    document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
 
   //toggle theme
   const handleThemeToggle = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   return (

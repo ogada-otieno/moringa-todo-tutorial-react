@@ -1,5 +1,5 @@
 import React from "react";
-import { FaSun, FaMoon, FaSearch, FaBell, FaTasks, FaList } from "react-icons/fa";
+import { FaSun, FaMoon, FaSearch, FaBell, FaUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const NavBar = ({ theme, handleThemeToggle, onSearch }) => {
@@ -28,7 +28,7 @@ const NavBar = ({ theme, handleThemeToggle, onSearch }) => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/calender">Calender</NavLink>
             </li>
             <li>
               <NavLink to="/tasks">Tasks</NavLink>
@@ -38,12 +38,14 @@ const NavBar = ({ theme, handleThemeToggle, onSearch }) => {
             </li>
           </ul>
         </div>
-        <NavLink to="/" className="btn btn-ghost text-xl">My Todo App</NavLink>
+        <NavLink to="/" className="btn btn-ghost text-xl">
+          My Todo App
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <NavLink to="/home">Home</NavLink>
+            <NavLink to="/calender">Calender</NavLink>
           </li>
           <li>
             <details>
@@ -63,7 +65,7 @@ const NavBar = ({ theme, handleThemeToggle, onSearch }) => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end flex items-center space-x-2">
         <button className="btn btn-ghost btn-circle">
           <FaSearch className="h-5 w-5" />
         </button>
@@ -73,7 +75,30 @@ const NavBar = ({ theme, handleThemeToggle, onSearch }) => {
             <span className="badge badge-xs badge-primary indicator-item"></span>
           </div>
         </button>
-        <button onClick={handleThemeToggle} className="btn btn-ghost btn-circle">
+        <div className="dropdown dropdown-end">
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+            <FaUser className="h-5 w-5" />
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+          >
+            <li>
+              <NavLink to="/login" className="flex items-center">
+                <FaUser className="mr-2" /> Login
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/register" className="flex items-center">
+                <FaUser className="mr-2" /> Register
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+        <button
+          onClick={handleThemeToggle}
+          className="btn btn-ghost btn-circle"
+        >
           {theme === "light" ? (
             <FaMoon className="h-5 w-5" />
           ) : (

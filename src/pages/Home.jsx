@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import AddTodoForm from '../components/AddTodoForm';
-import TodoList from '../components/TodoList';
-import EditTodoModal from '../components/EditTodoModal';
-import Footer from '../components/Footer';
-import SearchModal from '../components/SearchModal';
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AddTodoForm from "../components/AddTodoForm";
+import TodoList from "../components/TodoList";
+import EditTodoModal from "../components/EditTodoModal";
+import Footer from "../components/Footer";
+import SearchModal from "../components/SearchModal";
 
 function Home() {
   const [jsonData, setJsonData] = useState([]);
@@ -16,15 +16,15 @@ function Home() {
   useEffect(() => {
     const fetchJsonData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/myTodos');
+        const response = await fetch("http://localhost:5000/myTodos");
         if (!response.ok) {
-          throw new Error('network response failed');
+          throw new Error("network response failed");
         }
         const data = await response.json();
         setJsonData(data);
       } catch (error) {
         console.error(error);
-        toast.error('Failed to fetch data');
+        toast.error("Failed to fetch data");
       }
     };
 
@@ -33,16 +33,16 @@ function Home() {
 
   const addTodo = async (newTodo) => {
     try {
-      const response = await fetch('http://localhost:5000/myTodos', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/myTodos", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(newTodo),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to add todo');
+        throw new Error("Failed to add todo");
       }
 
       const addedTodo = await response.json();
@@ -63,15 +63,15 @@ function Home() {
 
     try {
       const response = await fetch(`http://localhost:5000/myTodos/${id}`, {
-        method: 'PATCH',
+        method: "PATCH",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(updatedTodo),
       });
 
       if (!response.ok) {
-        throw new Error('network response failed');
+        throw new Error("network response failed");
       }
 
       if (updatedTodo.isComplete) {
@@ -81,31 +81,31 @@ function Home() {
       }
     } catch (error) {
       console.error(error);
-      toast.error('⚠️ An error occurred. Please try again');
+      toast.error("⚠️ An error occurred. Please try again");
     }
   };
 
   const deleteTodo = async (id) => {
     try {
       const response = await fetch(`http://localhost:5000/myTodos/${id}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
 
       if (!response.ok) {
-        throw new Error('Failed to delete todo');
+        throw new Error("Failed to delete todo");
       }
 
       setJsonData(jsonData.filter((todo) => todo.id !== id));
-      toast.success('⛔️ Task deleted successfully');
+      toast.success("⛔️ Task deleted successfully");
     } catch (error) {
       console.error(error);
-      toast.error('❗️ Failed to delete task');
+      toast.error("❗️ Failed to delete task");
     }
   };
 
   const handleEdit = (todo) => {
     setEditingTodo(todo);
-    document.getElementById('edit_modal').showModal();
+    document.getElementById("edit_modal").showModal();
   };
 
   const saveEdit = async (updatedTodo) => {
@@ -113,16 +113,16 @@ function Home() {
       const response = await fetch(
         `http://localhost:5000/myTodos/${updatedTodo.id}`,
         {
-          method: 'PATCH',
+          method: "PATCH",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(updatedTodo),
         },
       );
 
       if (!response.ok) {
-        throw new Error('network response failed');
+        throw new Error("network response failed");
       }
 
       const updatedTodos = jsonData.map((todo) =>
@@ -133,7 +133,7 @@ function Home() {
       toast.success(`🎉 Task "${updatedTodo.title}" updated successfully`);
     } catch (error) {
       console.error(error);
-      toast.error('❗️ An error occurred. Please try again');
+      toast.error("❗️ An error occurred. Please try again");
     }
   };
 
@@ -141,9 +141,10 @@ function Home() {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
     if (query) {
-      const filteredTodos = jsonData.filter(todo =>
-        todo.title.toLowerCase().includes(query) ||
-        todo.description.toLowerCase().includes(query)
+      const filteredTodos = jsonData.filter(
+        (todo) =>
+          todo.title.toLowerCase().includes(query) ||
+          todo.description.toLowerCase().includes(query),
       );
       setSearchResults(filteredTodos);
     } else {
@@ -152,22 +153,22 @@ function Home() {
   };
 
   const openModal = () => {
-    document.getElementById('search_modal').showModal();
+    document.getElementById("search_modal").showModal();
   };
 
   const closeModal = () => {
-    document.getElementById('search_modal').close();
+    document.getElementById("search_modal").close();
   };
 
   return (
     <>
-      <div className='App container mx-auto p-4'>
-        <div className='flex justify-end'>
+      <div className="App container mx-auto p-4">
+        <div className="flex justify-end">
           <button className="btn btn-primary" onClick={openModal}>
             Search Todos
           </button>
         </div>
-        
+
         <SearchModal
           searchQuery={searchQuery}
           handleSearch={handleSearch}
@@ -175,12 +176,12 @@ function Home() {
           closeModal={closeModal}
         />
 
-        <div className='flex flex-col lg:flex-row lg:space-x-8 mt-14'>
-          <div className='flex-1 flex items-stretch'>
-            <AddTodoForm addTodo={addTodo} className='flex-1' />
+        <div className="flex flex-col lg:flex-row lg:space-x-8 mt-14">
+          <div className="flex-1 flex items-stretch">
+            <AddTodoForm addTodo={addTodo} className="flex-1" />
           </div>
         </div>
-        <div id='todolist' className='mt-8'>
+        <div id="todolist" className="mt-8">
           <TodoList
             todos={jsonData}
             onToggle={toggleTodo}
@@ -193,7 +194,7 @@ function Home() {
 
         <EditTodoModal
           todo={editingTodo}
-          onClose={() => document.getElementById('edit_modal').close()}
+          onClose={() => document.getElementById("edit_modal").close()}
           onSave={saveEdit}
         />
         <ToastContainer />
