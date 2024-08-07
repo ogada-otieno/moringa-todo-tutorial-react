@@ -144,7 +144,6 @@ function Home() {
   return (
     <>
       <div className='App container mx-auto p-4'>
-        {/* <Header handleThemeToggle={handleThemeToggle} theme={theme} /> */}
         <div className='flex flex-col lg:flex-row lg:space-x-8 mt-14'>
           <div className='flex-1 flex items-stretch'>
             <AddTodoForm addTodo={addTodo} className='flex-1' />

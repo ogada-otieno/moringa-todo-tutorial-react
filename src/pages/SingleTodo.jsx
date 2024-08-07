@@ -1,29 +1,72 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 const SingleTodo = () => {
-  // use JavaScript's window.location.pathname to grab the ID
-  const pathname = window.location.pathname;
+  // const pathname = window.location.pathname;
+  // let { id } = useParams();
+  let data = useLocation().state;
 
-  // or useParams() to extract the id from the useParams()
-  // if you check the routes.js file, you'll see that we passed the param as "id". so, we can destructure it from the use params
-  let { id } = useParams();
-  console.log(id);
+  // Inline styles
+  const containerStyle = {
+    padding: '20px',
+    maxWidth: '600px',
+    margin: '0 auto',
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    backgroundColor: '#f9f9f9',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+  };
 
-  // use split() method to extract the id from the pathname
+  const buttonStyle = {
+    padding: '10px 15px',
+    margin: '10px 5px',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+  };
 
-  // handle a fetch request for the ID that is passed
-  console.log(pathname);
+  const completeButtonStyle = {
+    ...buttonStyle,
+    backgroundColor: 'green',
+    color: 'white',
+  };
+
+  const incompleteButtonStyle = {
+    ...buttonStyle,
+    backgroundColor: 'red',
+    color: 'white',
+  };
+
+  const deleteButtonStyle = {
+    ...buttonStyle,
+    backgroundColor: '#ff0000',
+    color: 'white',
+  };
+
   return (
-    <div>
-      <Link to={'/'}>Go back to home</Link>
-      <h1>title</h1>
-      <p>description</p>
-      <p>status: complete or incomplete</p>
-      <>date when it was created</>
-      <>button for editing</>
-      <>button for marking as complete or incomplete</>
-      <>button for deleting</>
+    <div style={containerStyle}>
+      <Link
+        to={'/'}
+        style={{
+          textDecoration: 'none',
+          color: 'blue',
+          marginBottom: '10px',
+          display: 'inline-block',
+        }}
+      >
+        Go back to home
+      </Link>
+      <h1 style={{ color: '#333' }}>Title: {data.title}</h1>
+      <p style={{ color: '#555' }}>Description: {data.description}</p>
+      <p>Status: {data.isComplete ? 'Complete' : 'Incomplete'}</p>
+      <p>Date when it was created</p>
+      <button style={buttonStyle}>Edit</button>
+      {data.isComplete ? (
+        <button style={incompleteButtonStyle}>Mark as incomplete</button>
+      ) : (
+        <button style={completeButtonStyle}>Mark as Complete</button>
+      )}
+      <button style={deleteButtonStyle}>Delete</button>
     </div>
   );
 };

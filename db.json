@@ -4,85 +4,290 @@
       "id": "1",
       "title": "Complete React Tutorials",
       "description": "Finish the React project for the client, including all features and testing.",
-      "isComplete": false
+      "isComplete": false,
+      "dueDate": "2024-08-15",
+      "priority": "High",
+      "category": "Work",
+      "creationDate": "2024-07-01",
+      "lastModifiedDate": "2024-08-05",
+      "subtasks": [
+        { "title": "Create wireframes", "isComplete": true },
+        { "title": "Write code", "isComplete": false },
+        { "title": "Testing", "isComplete": false }
+      ],
+      "notes": "Remember to check the client's requirements before starting the project",
+      "assignedTo": "John Doe",
+      "estimatedTime": "10 hours",
+      "location": "Office",
+      "tags": ["urgent", "client", "frontend"]
     },
     {
       "id": "2",
       "title": "Grocery Shopping",
       "description": "Buy groceries for the week including fruits, vegetables, and dairy products.",
-      "isComplete": true
+      "isComplete": true,
+      "dueDate": "2024-08-03",
+      "priority": "Medium",
+      "category": "Personal",
+      "creationDate": "2024-07-28",
+      "lastModifiedDate": "2024-08-02",
+      "subtasks": [
+        { "title": "Make a list", "isComplete": true },
+        { "title": "Go to the store", "isComplete": true }
+      ],
+      "notes": "Check for discounts on dairy products",
+      "assignedTo": "Self",
+      "estimatedTime": "1 hour",
+      "location": "Local supermarket",
+      "tags": ["shopping", "weekly"]
     },
     {
       "id": "3",
       "title": "Book Doctor Appointment",
       "description": "Schedule a doctor's appointment for a routine check-up.",
-      "isComplete": false
+      "isComplete": false,
+      "dueDate": "2024-08-10",
+      "priority": "High",
+      "category": "Health",
+      "creationDate": "2024-07-25",
+      "lastModifiedDate": "2024-08-01",
+      "subtasks": [
+        { "title": "Find doctor's contact", "isComplete": true },
+        { "title": "Call and book appointment", "isComplete": false }
+      ],
+      "notes": "Ask about annual health check-up packages",
+      "assignedTo": "Self",
+      "estimatedTime": "15 minutes",
+      "location": "Doctor's office",
+      "tags": ["health", "important"]
     },
     {
       "id": "4",
       "title": "Read 20 Pages of a Book",
       "description": "Read 20 pages of 'The Great Gatsby' before the end of the day.",
-      "isComplete": false
+      "isComplete": false,
+      "dueDate": "2024-08-07",
+      "priority": "Low",
+      "category": "Personal",
+      "creationDate": "2024-08-06",
+      "lastModifiedDate": "2024-08-06",
+      "subtasks": [
+        { "title": "Find a quiet place", "isComplete": false },
+        { "title": "Read 10 pages", "isComplete": false },
+        { "title": "Read another 10 pages", "isComplete": false }
+      ],
+      "notes": "Focus on the symbolism in the text",
+      "assignedTo": "Self",
+      "estimatedTime": "1 hour",
+      "location": "Home",
+      "tags": ["reading", "leisure"]
     },
     {
       "id": "5",
       "title": "Finish Homework",
       "description": "Complete the homework assignments for mathematics and science.",
-      "isComplete": true
+      "isComplete": true,
+      "dueDate": "2024-08-01",
+      "priority": "High",
+      "category": "School",
+      "creationDate": "2024-07-20",
+      "lastModifiedDate": "2024-07-31",
+      "subtasks": [
+        { "title": "Mathematics problems", "isComplete": true },
+        { "title": "Science report", "isComplete": true }
+      ],
+      "notes": "Double-check the mathematics solutions",
+      "assignedTo": "Self",
+      "estimatedTime": "3 hours",
+      "location": "Home",
+      "tags": ["school", "urgent"]
     },
     {
       "id": "6",
       "title": "Prepare Presentation",
       "description": "Create slides and prepare the speech for the upcoming team meeting.",
-      "isComplete": false
+      "isComplete": false,
+      "dueDate": "2024-08-09",
+      "priority": "High",
+      "category": "Work",
+      "creationDate": "2024-08-01",
+      "lastModifiedDate": "2024-08-04",
+      "subtasks": [
+        { "title": "Draft outline", "isComplete": true },
+        { "title": "Design slides", "isComplete": false },
+        { "title": "Practice speech", "isComplete": false }
+      ],
+      "notes": "Include the latest project updates",
+      "assignedTo": "Jane Doe",
+      "estimatedTime": "5 hours",
+      "location": "Office",
+      "tags": ["presentation", "work"]
     },
     {
       "id": "8",
       "title": "Send Email to Boss",
       "description": "Send an update email to the boss regarding the project progress.",
-      "isComplete": false
+      "isComplete": false,
+      "dueDate": "2024-08-08",
+      "priority": "Medium",
+      "category": "Work",
+      "creationDate": "2024-08-07",
+      "lastModifiedDate": "2024-08-07",
+      "subtasks": [
+        { "title": "Draft email", "isComplete": false },
+        { "title": "Review draft", "isComplete": false },
+        { "title": "Send email", "isComplete": false }
+      ],
+      "notes": "Include the new feature updates",
+      "assignedTo": "Self",
+      "estimatedTime": "30 minutes",
+      "location": "Office",
+      "tags": ["email", "work"]
     },
     {
       "id": "9",
       "title": "Plan Weekend Trip",
       "description": "Plan the itinerary and book accommodation for the weekend trip to the beach.",
-      "isComplete": false
+      "isComplete": false,
+      "dueDate": "2024-08-12",
+      "priority": "Low",
+      "category": "Personal",
+      "creationDate": "2024-08-01",
+      "lastModifiedDate": "2024-08-06",
+      "subtasks": [
+        { "title": "Research destinations", "isComplete": true },
+        { "title": "Book accommodation", "isComplete": false },
+        { "title": "Create itinerary", "isComplete": false }
+      ],
+      "notes": "Look for pet-friendly accommodations",
+      "assignedTo": "Self",
+      "estimatedTime": "2 hours",
+      "location": "Home",
+      "tags": ["travel", "leisure"]
     },
     {
       "id": "10",
       "title": "Exercise for 30 Minutes",
       "description": "Complete a 30-minute workout session at the gym.",
-      "isComplete": true
+      "isComplete": true,
+      "dueDate": "2024-08-06",
+      "priority": "High",
+      "category": "Health",
+      "creationDate": "2024-08-06",
+      "lastModifiedDate": "2024-08-06",
+      "subtasks": [
+        { "title": "Warm-up", "isComplete": true },
+        { "title": "Cardio", "isComplete": true },
+        { "title": "Cool down", "isComplete": true }
+      ],
+      "notes": "Focus on cardio exercises",
+      "assignedTo": "Self",
+      "estimatedTime": "30 minutes",
+      "location": "Gym",
+      "tags": ["health", "exercise"]
     },
     {
       "id": "11",
       "title": "Update Resume",
       "description": "Revise and update the resume with recent work experience and skills.",
-      "isComplete": false
+      "isComplete": false,
+      "dueDate": "2024-08-10",
+      "priority": "Medium",
+      "category": "Work",
+      "creationDate": "2024-07-30",
+      "lastModifiedDate": "2024-08-05",
+      "subtasks": [
+        { "title": "Add latest project", "isComplete": false },
+        { "title": "Update skills section", "isComplete": false },
+        { "title": "Proofread", "isComplete": false }
+      ],
+      "notes": "Highlight recent certifications",
+      "assignedTo": "Self",
+      "estimatedTime": "2 hours",
+      "location": "Home",
+      "tags": ["work", "important"]
     },
     {
       "id": "12",
       "title": "Fix Broken Faucet",
       "description": "Repair the leaking faucet in the kitchen sink.",
-      "isComplete": true
+      "isComplete": true,
+      "dueDate": "2024-08-04",
+      "priority": "Medium",
+      "category": "Household",
+      "creationDate": "2024-07-29",
+      "lastModifiedDate": "2024-08-03",
+      "subtasks": [
+        { "title": "Buy replacement parts", "isComplete": true },
+        { "title": "Turn off water supply", "isComplete": true },
+        { "title": "Fix faucet", "isComplete": true }
+      ],
+      "notes": "Check YouTube for DIY videos",
+      "assignedTo": "Self",
+      "estimatedTime": "1 hour",
+      "location": "Home",
+      "tags": ["household", "repair"]
     },
     {
       "id": "13",
       "title": "Call Mom",
       "description": "Give a call to mom to check in and chat about the week.",
-      "isComplete": true
+      "isComplete": true,
+      "dueDate": "2024-08-05",
+      "priority": "High",
+      "category": "Personal",
+      "creationDate": "2024-08-05",
+      "lastModifiedDate": "2024-08-05",
+      "subtasks": [
+        { "title": "Find quiet time", "isComplete": true },
+        { "title": "Call mom", "isComplete": true }
+      ],
+      "notes": "Ask about her health",
+      "assignedTo": "Self",
+      "estimatedTime": "30 minutes",
+      "location": "Home",
+      "tags": ["family", "important"]
     },
     {
       "id": "14",
       "title": "Organize Digital Files",
       "description": "Sort and organize digital files and folders on the computer.",
-      "isComplete": true
+      "isComplete": true,
+      "dueDate": "2024-08-04",
+      "priority": "Low",
+      "category": "Personal",
+      "creationDate": "2024-08-01",
+      "lastModifiedDate": "2024-08-04",
+      "subtasks": [
+        { "title": "Sort documents", "isComplete": true },
+        { "title": "Delete unnecessary files", "isComplete": true },
+        { "title": "Backup important files", "isComplete": true }
+      ],
+      "notes": "Backup files to external drive",
+      "assignedTo": "Self",
+      "estimatedTime": "2 hours",
+      "location": "Home",
+      "tags": ["organization", "digital"]
     },
     {
       "id": "bc02",
       "title": "Go to hospital",
-      "description": "Go for check up ",
-      "isComplete": false
+      "description": "Go for check up",
+      "isComplete": false,
+      "dueDate": "2024-08-15",
+      "priority": "High",
+      "category": "Health",
+      "creationDate": "2024-08-01",
+      "lastModifiedDate": "2024-08-06",
+      "subtasks": [
+        { "title": "Schedule appointment", "isComplete": true },
+        { "title": "Visit hospital", "isComplete": false }
+      ],
+      "notes": "Take medical records",
+      "assignedTo": "Self",
+      "estimatedTime": "1 hour",
+      "location": "Hospital",
+      "tags": ["health", "important"]
     }
   ]
 }
