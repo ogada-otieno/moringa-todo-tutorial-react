@@ -1,47 +1,47 @@
 import React from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 
+// Inline styles
+const containerStyle = {
+  padding: '20px',
+  maxWidth: '600px',
+  margin: '0 auto',
+  border: '1px solid #ccc',
+  borderRadius: '8px',
+  backgroundColor: '#f9f9f9',
+  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+};
+
+const buttonStyle = {
+  padding: '10px 15px',
+  margin: '10px 5px',
+  border: 'none',
+  borderRadius: '5px',
+  cursor: 'pointer',
+};
+
+const completeButtonStyle = {
+  ...buttonStyle,
+  backgroundColor: 'green',
+  color: 'white',
+};
+
+const incompleteButtonStyle = {
+  ...buttonStyle,
+  backgroundColor: 'red',
+  color: 'white',
+};
+
+const deleteButtonStyle = {
+  ...buttonStyle,
+  backgroundColor: '#ff0000',
+  color: 'white',
+};
+
 const SingleTodo = () => {
   // const pathname = window.location.pathname;
   // let { id } = useParams();
   let data = useLocation().state;
-
-  // Inline styles
-  const containerStyle = {
-    padding: '20px',
-    maxWidth: '600px',
-    margin: '0 auto',
-    border: '1px solid #ccc',
-    borderRadius: '8px',
-    backgroundColor: '#f9f9f9',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-  };
-
-  const buttonStyle = {
-    padding: '10px 15px',
-    margin: '10px 5px',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  };
-
-  const completeButtonStyle = {
-    ...buttonStyle,
-    backgroundColor: 'green',
-    color: 'white',
-  };
-
-  const incompleteButtonStyle = {
-    ...buttonStyle,
-    backgroundColor: 'red',
-    color: 'white',
-  };
-
-  const deleteButtonStyle = {
-    ...buttonStyle,
-    backgroundColor: '#ff0000',
-    color: 'white',
-  };
 
   return (
     <div style={containerStyle}>
