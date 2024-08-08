@@ -67,7 +67,7 @@ const Todos = ({ onEdit, onDelete, onToggle }) => {
                   <span className="badge badge-warning">Incomplete</span>
                 )}
               </td>
-              <td>{new Date(todo.createdAt).toLocaleDateString()}</td>
+              <td>{new Date(todo.creationDate).toLocaleDateString()}</td>
               <td>
                 <div className="flex space-x-2">
                   <button

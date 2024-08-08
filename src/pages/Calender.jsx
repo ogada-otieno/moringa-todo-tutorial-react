@@ -34,11 +34,11 @@ const Calendar = () => {
     const firstDayOfMonth = new Date(
       currentDate.getFullYear(),
       currentDate.getMonth(),
-      1,
+      1
     ).getDay();
     const totalDays = daysInMonth(
       currentDate.getMonth() + 1,
-      currentDate.getFullYear(),
+      currentDate.getFullYear()
     );
 
     for (let i = 0; i < firstDayOfMonth; i++) {
@@ -46,7 +46,7 @@ const Calendar = () => {
         <div
           key={`empty-${i}`}
           className="bg-gray-50 px-3 py-2 text-gray-500"
-        ></div>,
+        ></div>
       );
     }
 
@@ -58,10 +58,14 @@ const Calendar = () => {
       days.push(
         <div
           key={i}
-          className={`relative bg-white px-3 py-2 ${isToday ? "font-semibold" : ""}`}
+          className={`relative bg-white px-3 py-2 ${
+            isToday ? "font-semibold" : ""
+          }`}
         >
           <time
-            dateTime={`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${i}`}
+            dateTime={`${currentDate.getFullYear()}-${
+              currentDate.getMonth() + 1
+            }-${i}`}
           >
             {i}
           </time>
@@ -94,7 +98,7 @@ const Calendar = () => {
                 </li>
               ))}
           </ol>
-        </div>,
+        </div>
       );
     }
     return days;
@@ -105,7 +109,9 @@ const Calendar = () => {
       <header className="flex items-center justify-between border-b border-gray-200 px-6 py-4 lg:flex-none">
         <h1 className="text-base font-semibold leading-6 text-gray-900">
           <time
-            dateTime={`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`}
+            dateTime={`${currentDate.getFullYear()}-${
+              currentDate.getMonth() + 1
+            }`}
           >
             {currentDate.toLocaleString("default", { month: "long" })}{" "}
             {currentDate.getFullYear()}
@@ -193,12 +199,7 @@ const Calendar = () => {
           </div>
         </div>
         <div className="flex bg-gray-200 text-xs leading-6 text-gray-700 lg:flex-auto">
-          <div className="hidden w-full lg:grid lg:grid-cols-7 lg:grid-rows-6 lg:gap-px">
-            {renderDays()}
-          </div>
-          <div className="isolate grid w-full grid-cols-7 grid-rows-6 gap-px lg:hidden">
-            {renderDays()}
-          </div>
+          <div className="grid w-full grid-cols-7 gap-px">{renderDays()}</div>
         </div>
       </div>
     </div>

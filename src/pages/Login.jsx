@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { toast } from "react-toastify";
+
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+  
+  const handleOnChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+  
+  console.log(formData);
+  
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+            
+    
+   
+       
   return (
     <div className="min-h-screen flex items-center justify-center bg-base-100 dark:bg-base-200">
       <div className="w-full max-w-md bg-base-100 dark:bg-base-300 rounded-lg shadow-md p-6">
@@ -12,21 +33,24 @@ const Login = () => {
         <p className="mt-2 text-center text-base-content dark:text-base-content">
           Access your account
         </p>
-        <form className="mt-4">
+        <form className="mt-4" onSubmit={handleOnSubmit}>
           <div className="flex flex-col mb-4">
             <label
               htmlFor="login"
               className="text-base-content dark:text-base-content"
             >
-              Login
+              Username
             </label>
             <input
-              id="login"
-              type="text"
-              className="px-3 py-2 bg-base-200 dark:bg-base-400 text-base-content dark:text-base-content rounded-md focus:outline-none focus:ring focus:ring-primary"
-              placeholder="Enter your login"
-              required
-            />
+            type="text"
+                        id="username"
+                        value={formData.username}
+                        onChange={handleOnChange}
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      required
+                      />
+              
+        
           </div>
           <div className="flex flex-col mb-6">
             <label
@@ -36,16 +60,18 @@ const Login = () => {
               Password
             </label>
             <input
-              id="password"
-              type="password"
-              className="px-3 py-2 bg-base-200 dark:bg-base-400 text-base-content dark:text-base-content rounded-md focus:outline-none focus:ring focus:ring-primary"
-              placeholder="Enter your password"
-              required
+                        type="password"
+                        id="password"
+                        value={formData.password}
+                        onChange={handleOnChange}
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                       required
             />
           </div>
           <button
             type="submit"
             className="w-full py-2 px-4 bg-primary dark:bg-primary-focus text-white rounded-md hover:bg-primary-focus dark:hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-light dark:focus:ring-primary-dark"
+         
           >
             Sign in
           </button>

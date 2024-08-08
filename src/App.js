@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+
 
 const App = () => {
   const [theme, setTheme] = useState("light");
@@ -17,12 +19,11 @@ const App = () => {
 
   return (
     <div>
-      <header>
         <NavBar handleThemeToggle={handleThemeToggle} theme={theme} />
-      </header>
       <main>
         <Outlet />
       </main>
+        <Footer />
     </div>
   );
 };

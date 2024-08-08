@@ -6,6 +6,7 @@ const SingleTodo = () => {
   const location = useLocation();
   let { id } = useParams();
   const todo = location.state?.todo;
+  console.log(location);
 
   if (todo.id !== id) {
     return (

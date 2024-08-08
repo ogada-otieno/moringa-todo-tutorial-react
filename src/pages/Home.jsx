@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import AddTodoForm from "../components/AddTodoForm";
 import TodoList from "../components/TodoList";
 import EditTodoModal from "../components/EditTodoModal";
-import Footer from "../components/Footer";
 import SearchModal from "../components/SearchModal";
 
 function Home() {
@@ -189,8 +188,6 @@ function Home() {
             onEdit={handleEdit}
           />
         </div>
-
-        <Footer />
 
         <EditTodoModal
           todo={editingTodo}

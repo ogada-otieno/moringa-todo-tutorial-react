@@ -50,9 +50,9 @@ const TodoList = ({ todos, onToggle, onDelete, onEdit }) => {
         </div>
       </div>
       <div className="m-3 flex items-center justify-center mb-7">
-        <Link to="/todos" className="btn btn-primary">
+        <button  className="btn btn-primary">
           Show More
-        </Link>
+        </button>
       </div>
     </>
   );
