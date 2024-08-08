@@ -20,6 +20,12 @@ const buttonStyle = {
   cursor: 'pointer',
 };
 
+  const editButtonStyle = {
+    ...buttonStyle,
+    backgroundColor: 'green',
+    color: 'white',
+  };
+
 const completeButtonStyle = {
   ...buttonStyle,
   backgroundColor: 'green',
@@ -60,7 +66,7 @@ const SingleTodo = () => {
       <p style={{ color: '#555' }}>Description: {data.description}</p>
       <p>Status: {data.isComplete ? 'Complete' : 'Incomplete'}</p>
       <p>Date when it was created</p>
-      <button style={buttonStyle}>Edit</button>
+      <button style={editButtonStyle}>Edit</button>
       {data.isComplete ? (
         <button style={incompleteButtonStyle}>Mark as incomplete</button>
       ) : (
