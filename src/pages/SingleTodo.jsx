@@ -28,13 +28,13 @@ const buttonStyle = {
 
 const completeButtonStyle = {
   ...buttonStyle,
-  backgroundColor: 'green',
+  backgroundColor: 'cyan',
   color: 'white',
 };
 
 const incompleteButtonStyle = {
   ...buttonStyle,
-  backgroundColor: 'red',
+  backgroundColor: 'cyan',
   color: 'white',
 };
 
